@@ -100,7 +100,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := libasan
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := bionic external/compiler-rt/lib external/compiler-rt/include
-LOCAL_CFLAGS += $(asan_rtl_cflags)
+LOCAL_CFLAGS += $(asan_rtl_cflags) -Qunused-arguments -Wno-unknown-warning-option
 LOCAL_SRC_FILES := asan_preinit.cc
 #LOCAL_SRC_FILES := asan_android_stub.cc asan_preinit.cc
 LOCAL_CPP_EXTENSION := .cc
@@ -117,7 +117,7 @@ LOCAL_C_INCLUDES := \
   bionic \
   external/compiler-rt/lib \
   external/compiler-rt/include
-LOCAL_CFLAGS += $(asan_rtl_cflags)
+LOCAL_CFLAGS += $(asan_rtl_cflags) -Qunused-arguments -Wno-unknown-warning-option
 LOCAL_SRC_FILES := $(asan_rtl_files)
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_SHARED_LIBRARIES := libc libdl
@@ -161,6 +161,7 @@ LOCAL_CFLAGS += \
 	-DASAN_HAS_EXCEPTIONS=$(ASAN_HAS_EXCEPTIONS) \
 	-DASAN_NEEDS_SEGV=$(ASAN_NEEDS_SEGV) \
         -D__WORDSIZE=32
+LOCAL_CFLAGS += -Qunused-arguments -Wno-unknown-warning-option
 LOCAL_SRC_FILES := tests/asan_noinst_test.cc tests/asan_test_main.cc
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_CLANG := true

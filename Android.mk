@@ -300,6 +300,7 @@ define build-libcompiler-rt
 
   # Use Clang to compile libcompiler_rt
   LOCAL_CLANG := true
+  LOCAL_CFLAGS += -Qunused-arguments -Wno-unknown-warning-option
   LOCAL_SRC_FILES := $$(call get-libcompiler-rt-source-files,$$(arch))
   LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 
